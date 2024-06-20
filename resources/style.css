@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    color: aliceblue;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    background-color: rgb(7, 7, 9);
+}
+
+#paragraph-1 {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+#paragraph-1 h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+#paragraph-1 p {
+    font-size: 24px;
+}
+
+#paragraph-2 {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    height: 60px;
+    color: white;
+    margin: 30px;
+    padding-left: 10px;
+    z-index: 1000;
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
+
+
+#main section {
+    scrollbar-width: none;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+
+.g-bg {
+    position: fixed;
+    /* 使用固定定位 */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    /* 将背景置于页面内容之后 */
+    pointer-events: none;
+    /* 防止背景捕获鼠标事件 */
+}
+
+.g-polygon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    transition: clip-path 2s ease;
+    backdrop-filter: blur(20px);
+}
+
+.g-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    backdrop-filter: blur(140px);
+    z-index: 1;
+}
+
+#logo {
+    filter: none;
+    transition: filter 0.4s;
+    max-height: 100%;
+    width: auto;
+}
+
+#logo:hover {
+    filter: drop-shadow(0 0 10px #ae00ff) drop-shadow(0 0 25px #001eff) drop-shadow(0 0 50px #ae00ff);
+    transition: filter 0.4s;
+}
+
+.light-button {
+ --glow-color: rgb(217, 176, 255);
+ --glow-spread-color: rgba(191, 123, 255, 0.781);
+ --enhanced-glow-color: rgb(231, 206, 255);
+ --btn-color: rgb(100, 61, 136);
+ border: .25em solid var(--glow-color);
+ padding: 1em 3em;
+ color: var(--glow-color);
+ font-size: 15px;
+ font-weight: bold;
+ background-color: var(--btn-color);
+ border-radius: 1em;
+ outline: none;
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 1em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+ text-shadow: 0 0 .5em var(--glow-color);
+ position: relative;
+ transition: all 0.3s;
+}
+
+.light-button::after {
+ pointer-events: none;
+ content: "";
+ position: absolute;
+ top: 120%;
+ left: 0;
+ height: 100%;
+ width: 100%;
+ background-color: var(--glow-spread-color);
+ filter: blur(2em);
+ opacity: .7;
+ transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+
+.light-button:hover {
+ color: var(--btn-color);
+ background-color: var(--glow-color);
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 2em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+}
+
+.light-button:active {
+ box-shadow: 0 0 0.6em .25em var(--glow-color),
+        0 0 2.5em 2em var(--glow-spread-color),
+        inset 0 0 .5em .25em var(--glow-color);
+}
